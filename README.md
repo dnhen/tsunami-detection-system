@@ -4,6 +4,8 @@ Team project implemented in the C language using POSIX threads and OpenMPI.
 
 A simulated tsunami detection system featuring nodes communicating with satellites and a base station to broadcast alerts when a tsunami is detected.
 
+![image](https://user-images.githubusercontent.com/69449713/142986317-68989af2-7cb3-435d-85f5-68d1f9cf6272.png)
+
 **How to execute:**
 * Execute the command: make
 * Execute the command: make run proc=\<# processors\> n=\<n\> m=\<m\> t=\<threshold\>
