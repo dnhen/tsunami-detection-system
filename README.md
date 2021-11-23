@@ -1,6 +1,7 @@
 # Tsunami Detection System
 
 Team project implemented in the C language using POSIX threads and OpenMPI.
+
 A simulated tsunami detection system featuring nodes communicating with satellites and a base station to broadcast alerts when a tsunami is detected.
 
 **How to execute:**
