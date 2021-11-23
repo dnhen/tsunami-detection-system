@@ -1,0 +1,27 @@
+#!/bin/bash 
+#SBATCH --job-name=wsn_job ### name your job 
+#SBATCH --time=00:30:00		 ### hh:mm:ss or dd-hh:mm:ss
+#SBATCH --mem=32G				 ### memory setting is max @ 4 GB per core
+#SBATCH --ntasks=26				 ### launch one python process
+#SBATCH --cpus-per-task=1 ### single-threaded processes
+#SBATCH --ntasks-per-node=26   ### four per node
+
+#SBATCH --partition=short,comp,gpu
+
+#SBATCH --output=wsn.%j.out
+
+module load openmpi/3.1.6-ucx
+
+if [ ! -f wsn ]
+then
+ mpicc only_main.c base_station.c node.c functions.c satellite.c -o wsn -std=c99
+else
+ if [ only_main.c base_station.c node.c functions.c satellite.c -nt wsn ]
+ then
+  mpicc only_main.c base_station.c node.c functions.c satellite.c -o wsn -std=c99
+ fi
+fi
+
+srun wsn 5 5 300
+
+exit 0
