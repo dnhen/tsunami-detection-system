@@ -20,9 +20,11 @@ The base station receives the alert, and requests a height reading from the sate
 
 ## System Termination
 
-The system will run until a termination signal is received.
+The system will run until a termination signal is received. When the system starts, a "shutdown.txt" file is created. To shut the system down, change the integer in this file to 1. This will shut the system down on the next cycle run.
 
-## How to execute
+When the system is shut down, you can view the base station log file (which includes all of the alerts), and also view the key performance metrics (which contains key information about the system).
+
+## System Execution
 * Execute the command: make
 * Execute the command: make run proc=\<# processors\> n=\<n\> m=\<m\> t=\<threshold\>
   * \# processors = how many processors you want to run with
